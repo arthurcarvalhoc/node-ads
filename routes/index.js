@@ -8,9 +8,31 @@ router.get('/', function(req, res, next) {
   res.render('sign-in', { });
 });
 
-router.get('/laboratorios', function(req, res, next) {
-  res.render('laboratoriosPage', { });
+router.get('/laboratorios', async function(req, res, next) {
+
+ // CONSULTAR OS LABORATÓRIOS
+  let listaLabs = await labRepository.consultarLab();
+  console.log(listaLabs);
+
+  res.render('laboratoriosList', { laboratorios: listaLabs });
 });
+
+router.get('/addlaboratorio', (req, res, next)=>{
+  res.render('laboratoriosPage',{});
+});
+
+router.get('/deletelab', async (req, res, next)=>{
+
+  const id = req.query.id;
+  console.log(id);
+
+  await labRepository.apagarLab(id);
+  let listaLabs = await labRepository.consultarLab();
+ 
+  res.render('laboratoriosList', { laboratorios: listaLabs });
+});
+
+
 
 router.post('/createLab', function(req, res, next) {
 

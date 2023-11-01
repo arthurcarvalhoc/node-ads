@@ -16,4 +16,36 @@ async function criarLab(nome, capacidade, computodores) {
     }
 }
 
-module.exports = { criarLab };
+async function consultarLab(){
+
+    try {
+        const con = await db.conectarMysql();
+        const consulta = 'SELECT * FROM laboratorios l';
+        const resultado = await con.query(consulta);
+        const listaLabs = resultado[0];
+        return listaLabs;
+        
+    } catch (error) {
+        console.log(error);
+        return false;
+    }
+
+}
+
+async function apagarLab(id){
+
+    try {
+        const con = await db.conectarMysql();
+        const consulta = `delete from laboratorios where id = ${id}`
+        await con.execute(consulta);
+        return true;
+        
+    } catch (error) {
+        console.log(error);
+        return false;
+    }
+
+}
+
+
+module.exports = { criarLab, consultarLab, apagarLab };
