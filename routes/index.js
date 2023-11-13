@@ -46,6 +46,44 @@ router.post('/createLab', function(req, res, next) {
 
 });
 
+
+
+router.get('/viewLab', async function(req, res, next) {
+
+  let {id} = req.query;
+
+  const lab = await labRepository.getLab(id)
+  console.log(lab)
+    res.render('laboratoriosDetail', { laboratorio: lab });
+  
+
+});
+
+router.get('/updateLab', async function(req, res, next) {
+
+  let {id} = req.query;
+
+  const lab = await labRepository.getLab(id)
+  console.log(lab)
+    res.render('laboratoriosUpdate', { laboratorio: lab });
+  
+
+});
+
+
+router.post('/updateLab', async function(req, res, next) {
+
+  let {id, nome, capacidade, computadores} = req.body;
+
+  await labRepository.updateLab(id, nome, capacidade, computadores)
+  
+  let listaLabs = await labRepository.consultarLab();
+  res.render('laboratoriosList', { laboratorios: listaLabs });
+  
+
+});
+
+
 router.post('/autenticar', async function(req, res, next) {
   let { login, senha } = req.body; 
 
