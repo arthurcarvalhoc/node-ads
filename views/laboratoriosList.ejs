@@ -59,12 +59,11 @@
                 <h6 class="text-white text-capitalize ps-3">Laboratorios</h6>
               </div>
             </div>
-            <div class="card-body px-0 pb-2">
+            <div class="card-body px-0 pb-2" style="height: 450px;">
               
               <div class="table-responsive p-0">
                 <div class="row">
                   <div class="col-12">
-                    <button class="btn bg-gradient-primary" type="button" onclick="window.location = '/addlaboratorio'">Adicionar</button>
 
                   </div>
 
@@ -124,10 +123,39 @@
 
                 </tbody>
               </table>
+
+              <div class="position-absolute bottom-0 end-0 rounded-circle m-5">
+                <button type="button" class="btn btn-primary btn-lg  hide-toggle circle" aria-expanded="false" aria-haspopup="true"
+                 style="height: 62px;   width: 62px;   border-radius: 30px;"
+                 onclick="window.location = '/addlaboratorio'" >
+                  <strong>
+                    <span style="font-size: large; font-weight: bolder;">
+                      +
+                      </span>
+                    
+                    </strong>
+                  <span class="visually-hidden">Add Category</span>
+                </button>
+                
+              </div>
             </div>
           </div>
 
-          <!-- Modal -->
+ 
+              
+            
+            
+   
+    <%- include('./layout/footer') %>
+      
+      
+    <!-- Github buttons -->
+  <script async defer src="https://buttons.github.io/buttons.js"></script>
+  <!-- Control Center for Material Dashboard: parallax effects, scripts for the example pages etc -->
+  <script src="../assets/js/material-dashboard.min.js?v=3.1.0"></script>
+
+
+  <!-- Modal -->
 <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered" role="document">
     <div class="modal-content">
@@ -147,17 +175,7 @@
     </div>
   </div>
 </div>
-              
-            
-            
-   
-    <%- include('./layout/footer') %>
-      
-      
-    <!-- Github buttons -->
-  <script async defer src="https://buttons.github.io/buttons.js"></script>
-  <!-- Control Center for Material Dashboard: parallax effects, scripts for the example pages etc -->
-  <script src="../assets/js/material-dashboard.min.js?v=3.1.0"></script>
+
 </body>
 
 </html>

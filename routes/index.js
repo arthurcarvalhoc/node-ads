@@ -34,12 +34,14 @@ router.get('/deletelab', async (req, res, next)=>{
 
 
 
-router.post('/createLab', function(req, res, next) {
+router.post('/createLab', async function(req, res, next) {
 
   let {nome, capacidade, computadores} = req.body;
 
-  if(labRepository.criarLab(nome, capacidade, computadores)){
-    res.render('laboratoriosPage', { msg: true });
+  if(await labRepository.criarLab(nome, capacidade, computadores)){
+    let listaLabs = await labRepository.consultarLab(); 
+    res.render('laboratoriosList', { laboratorios: listaLabs });    
+    
   }else{
     res.render('laboratoriosPage', { msg: false });
   }
