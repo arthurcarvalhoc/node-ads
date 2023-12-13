@@ -21,7 +21,7 @@ async function updateLab(id, nome, capacidade, computodores) {
 
     try {
         const con = await db.conectarMysql();
-        let sql = `UPDATE pmc.laboratorios set nome='${nome}', capacidade=${capacidade}, computadores=${computodores} where id=${id}`
+        let sql = `UPDATE laboratorios set nome='${nome}', capacidade=${capacidade}, computadores=${computodores} where id=${id}`
         await con.execute(sql);
         con.destroy();
         console.log("atualizou");
