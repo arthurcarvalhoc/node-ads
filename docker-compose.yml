@@ -1,0 +1,31 @@
+version: "3"
+services:
+
+  # web:
+  #   build:
+  #     context: .
+  #   restart: always
+  #   working_dir: /home/node/app
+  #   volumes:
+  #     - ./:/home/node/app
+  #   environment:
+  #     - NODE_ENV=prod
+  #     - NPM_CONFIG_LOGLEVEL=debug 
+  #   # env_file:
+  #   #   - ./.env
+  #   ports:
+  #     - 3000:3000
+  #   command: sh -c "npm install && npm run start:dev"
+
+  db:
+    image: mysql:8.0.35
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: example
+      MYSQL_DATABASE: test
+    ports:
+      - 3306:3306  
+    volumes:
+      - ./mysql-data:/var/lib/mysql
+
+  

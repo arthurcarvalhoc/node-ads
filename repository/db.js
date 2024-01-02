@@ -16,8 +16,8 @@ function conectarMysql(){
     const con = db.createConnection({
         host: 'localhost',
         user: 'root',
-        password: 'mauFJcuf5dhRMQrjj',
-        database: 'pmc'
+        password: 'example',
+        database: 'test'
 
     }).promise();
     return con;
