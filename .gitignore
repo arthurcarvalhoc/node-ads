@@ -1,3 +1,5 @@
 .vscode
 node_modules
 mysql-data/**
+db-files
+*.zip

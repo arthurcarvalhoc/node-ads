@@ -15,9 +15,10 @@ function conectarMsSQL(){
 function conectarMysql(){
     const con = db.createConnection({
         host: 'localhost',
-        user: 'root',
-        password: 'example',
-        database: 'test'
+        user: 'ficr',
+        password: 'ficr1234',
+        database: 'test',
+        port: 3306
 
     }).promise();
     return con;
