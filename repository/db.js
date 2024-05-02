@@ -14,7 +14,7 @@ function conectarMsSQL(){
 
 function conectarMysql(){
     const con = db.createConnection({
-        host: 'localhost',
+        host: 'db',
         user: 'ficr',
         password: 'ficr1234',
         database: 'test',
